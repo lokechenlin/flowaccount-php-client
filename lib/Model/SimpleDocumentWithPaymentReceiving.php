@@ -101,6 +101,8 @@ class SimpleDocumentWithPaymentReceiving implements ModelInterface, ArrayAccess
         'payment_deduction_amount' => 'float',
         'withheld_percentage' => 'int',
         'withheld_amount' => 'float',
+        'other_channel_payment_channel' => 'int',
+        'other_channel_id' => 'int',
         'transfer_bank_account_id' => 'int',
         'bank_account_id' => 'int',
         'payment_remarks' => 'string',
@@ -162,6 +164,8 @@ class SimpleDocumentWithPaymentReceiving implements ModelInterface, ArrayAccess
         'payment_deduction_amount' => 'decimal',
         'withheld_percentage' => 'int64',
         'withheld_amount' => 'decimal',
+        'other_channel_payment_channel' => 'int64',
+        'other_channel_id' => 'int64',
         'transfer_bank_account_id' => 'int64',
         'bank_account_id' => 'int64',
         'payment_remarks' => null,
@@ -244,6 +248,8 @@ class SimpleDocumentWithPaymentReceiving implements ModelInterface, ArrayAccess
         'payment_deduction_amount' => 'paymentDeductionAmount',
         'withheld_percentage' => 'withheldPercentage',
         'withheld_amount' => 'withheldAmount',
+        'other_channel_payment_channel' => 'otherChannelPaymentChannel',
+        'other_channel_id' => 'otherChannelId',
         'transfer_bank_account_id' => 'transferBankAccountId',
         'bank_account_id' => 'bankAccountId',
         'payment_remarks' => 'paymentRemarks',
@@ -305,6 +311,8 @@ class SimpleDocumentWithPaymentReceiving implements ModelInterface, ArrayAccess
         'payment_deduction_amount' => 'setPaymentDeductionAmount',
         'withheld_percentage' => 'setWithheldPercentage',
         'withheld_amount' => 'setWithheldAmount',
+        'other_channel_payment_channel' => 'setOtherChannelPaymentChannel',
+        'other_channel_id' => 'setOtherChannelId',
         'transfer_bank_account_id' => 'setTransferBankAccountId',
         'bank_account_id' => 'setBankAccountId',
         'payment_remarks' => 'setPaymentRemarks',
@@ -366,6 +374,8 @@ class SimpleDocumentWithPaymentReceiving implements ModelInterface, ArrayAccess
         'payment_deduction_amount' => 'getPaymentDeductionAmount',
         'withheld_percentage' => 'getWithheldPercentage',
         'withheld_amount' => 'getWithheldAmount',
+        'other_channel_payment_channel' => 'getOtherChannelPaymentChannel',
+        'other_channel_id' => 'getOtherChannelId',
         'transfer_bank_account_id' => 'getTransferBankAccountId',
         'bank_account_id' => 'getBankAccountId',
         'payment_remarks' => 'getPaymentRemarks',
@@ -481,6 +491,8 @@ class SimpleDocumentWithPaymentReceiving implements ModelInterface, ArrayAccess
         $this->container['payment_deduction_amount'] = isset($data['payment_deduction_amount']) ? $data['payment_deduction_amount'] : 0;
         $this->container['withheld_percentage'] = isset($data['withheld_percentage']) ? $data['withheld_percentage'] : 0;
         $this->container['withheld_amount'] = isset($data['withheld_amount']) ? $data['withheld_amount'] : 0;
+        $this->container['other_channel_payment_channel'] = isset($data['other_channel_payment_channel']) ? $data['other_channel_payment_channel'] : null;
+        $this->container['other_channel_id'] = isset($data['other_channel_id']) ? $data['other_channel_id'] : 0;
         $this->container['transfer_bank_account_id'] = isset($data['transfer_bank_account_id']) ? $data['transfer_bank_account_id'] : 0;
         $this->container['bank_account_id'] = isset($data['bank_account_id']) ? $data['bank_account_id'] : 0;
         $this->container['payment_remarks'] = isset($data['payment_remarks']) ? $data['payment_remarks'] : null;
@@ -1598,6 +1610,26 @@ class SimpleDocumentWithPaymentReceiving implements ModelInterface, ArrayAccess
     public function setWithheldAmount($withheld_amount)
     {
         $this->container['withheld_amount'] = $withheld_amount;
+
+        return $this;
+    }
+
+    public function getOtherChannelPaymentChannel() {
+        return $this->container['other_channel_payment_channel'];
+    }
+
+    public function setOtherChannelPaymentChannel($other_channel_payment_channel) {
+        $this->container['other_channel_payment_channel'] = $other_channel_payment_channel;
+
+        return $this;
+    }
+
+    public function getOtherChannelId() {
+        return $this->container['other_channel_id'];
+    }
+
+    public function setOtherChannelId($other_channel_id) {
+        $this->container['other_channel_id'] = $other_channel_id;
 
         return $this;
     }
